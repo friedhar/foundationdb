@@ -102,7 +102,7 @@ struct PageChecksumCodec {
 
 		if (write) {
 			// Always write a xxHash3 checksum for new pages
-			// First 8 bits are set to 0 so that with high probability,
+			// First byte is set to 0 so that with high probability,
 			// checksums written with hashlittle2 don't require calculating
 			// an xxHash3 checksum on read
 			auto xxHash3 = XXH3_64bits(data, dataLen);
